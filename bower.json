@@ -1,0 +1,23 @@
+{
+  "name": "galacticage",
+  "description": "Determine's User's Galactic age. Space age!",
+  "main": "index.js",
+  "authors": [
+    "Joseph Tomlinson"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "private": false,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.2.1",
+    "bootstrap": "^3.3.7",
+    "moment": "^2.19.2"
+  }
+}
