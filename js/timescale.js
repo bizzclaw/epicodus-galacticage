@@ -27,6 +27,6 @@ export class TimeScale {
 
 	static getTimeDifference(startDate, endDate) {
 		endDate = endDate ? endDate : getNow();
-		return dateToSeconds(endDate) - dateToSeconds(startDate);
+		return TimeScale.dateToSeconds(endDate) - TimeScale.dateToSeconds(startDate);
 	}
 }

@@ -15,4 +15,11 @@ describe("TimeScale", function() {
 		expect(refDateSeconds).toEqual(1483228800);
 	});
 
+	it ("Should be able to determine the seconds between two dats", function() {
+		let startDate = new Date("January 1, 2017 UTC");
+		let endDate = new Date("January 2, 2017 UTC")
+		let timeDifference = TimeScale.getTimeDifference(startDate, endDate);
+		expect(timeDifference).toEqual(86400); // how many seconds google claims to be in a day
+	});
+
 });
