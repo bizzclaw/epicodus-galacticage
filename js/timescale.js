@@ -12,12 +12,12 @@ export class TimeScale {
 	}
 
 	static getPlanetTimeScale(planet) {
-		const timeScale = _planetTimeScales[planet];
+		let timeScale = _planetTimeScales[planet];
 		return timeScale ? timeScale : 1;
 	}
 
 	static getNow() {
-
+		return Date.now();
 	}
 
 	static dateToSeconds(date) {
@@ -25,8 +25,13 @@ export class TimeScale {
 		return seconds;
 	}
 
-	static getTimeDifference(startDate, endDate) {
-		endDate = endDate ? endDate : getNow();
+	static getSecondDifference(startDate, endDate) {
+		endDate = endDate ? endDate : TimeScale.getNow();
 		return TimeScale.dateToSeconds(endDate) - TimeScale.dateToSeconds(startDate);
+	}
+
+	static getYearDifference(startDate, endDate, planet) {
+		endDate = endDate ? endDate : TimeScale.getNow();
+		return (endDate.getYear() - startDate.getYear()) / TimeScale.getPlanetTimeScale(planet) ;
 	}
 }

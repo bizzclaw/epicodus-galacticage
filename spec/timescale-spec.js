@@ -18,8 +18,15 @@ describe("TimeScale", function() {
 	it ("Should be able to determine the seconds between two dats", function() {
 		let startDate = new Date("January 1, 2017 UTC");
 		let endDate = new Date("January 2, 2017 UTC")
-		let timeDifference = TimeScale.getTimeDifference(startDate, endDate);
-		expect(timeDifference).toEqual(86400); // how many seconds google claims to be in a day
+		let secondDifference = TimeScale.getSecondDifference(startDate, endDate);
+		expect(secondDifference).toEqual(86400); // how many seconds google claims to be in a day
+	});
+
+	it ("Should determind the year between two dates", function() {
+		let startDate = new Date("January 1, 1900 UTC");
+		let endDate = new Date("January 1, 2000 UTC")
+		let yearDifference = TimeScale.getYearDifference(startDate, endDate);
+		expect(yearDifference).toEqual(100);
 	});
 
 });
