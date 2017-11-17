@@ -23,6 +23,11 @@ export class TimeScale {
 	static dateToSeconds(date) {
 		let seconds = 0;
 		console.log(date.getFullYear(), date.getMonth(), date.getDate());
-		return date.getFullYear() * 31540000 + (date.getMonth()-1) * 2628000 + (date.getDate()-1) * 86400;
+		return date.getTime() / 1000;
+	}
+
+	static getTimeDifference(startDate, endDate) {
+		endDate = endDate ? endDate : getNow();
+		return dateToSeconds(endDate) - dateToSeconds(startDate);
 	}
 }
