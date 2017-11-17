@@ -22,11 +22,18 @@ describe("TimeScale", function() {
 		expect(secondDifference).toEqual(86400); // how many seconds google claims to be in a day
 	});
 
-	it ("Should determind the year between two dates", function() {
+	it ("Should determine the year between two dates", function() {
 		let startDate = new Date("January 1, 1900 UTC");
 		let endDate = new Date("January 1, 2000 UTC")
 		let yearDifference = TimeScale.getYearDifference(startDate, endDate);
 		expect(yearDifference).toEqual(100);
 	});
 
+	it ("should scale the year difference based on planet", function() {
+		let startDate = new Date("January 1, 2000 UTC");
+		let endDate = new Date("January 1, 2010 UTC")
+		let yearDifference = TimeScale.getYearDifference(startDate, endDate, "mars");
+		expect(yearDifference).toEqual(5.32);
+
+	})
 });

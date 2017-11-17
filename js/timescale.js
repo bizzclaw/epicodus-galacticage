@@ -21,7 +21,7 @@ export class TimeScale {
 	}
 
 	static dateToSeconds(date) {
-		let seconds = (date.getTime() / 1000.0)
+		let seconds = (date.getTime() / 1000.0);
 		return seconds;
 	}
 
@@ -32,6 +32,6 @@ export class TimeScale {
 
 	static getYearDifference(startDate, endDate, planet) {
 		endDate = endDate ? endDate : TimeScale.getNow();
-		return (endDate.getYear() - startDate.getYear()) / TimeScale.getPlanetTimeScale(planet) ;
+		return Number(((endDate.getYear() - startDate.getYear()) / TimeScale.getPlanetTimeScale(planet)).toFixed(2));
 	}
 }
