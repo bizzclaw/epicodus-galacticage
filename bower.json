@@ -7,7 +7,6 @@
   ],
   "license": "ISC",
   "homepage": "",
-  "private": false,
   "ignore": [
     "**/.*",
     "node_modules",
