@@ -16,13 +16,14 @@ export class TimeScale {
 		return timeScale ? timeScale : 1;
 	}
 
-	static getNow() {
-		return Date.now();
-	}
 
 	static dateToSeconds(date) {
-		let seconds = (date.getTime() / 1000.0);
-		return seconds;
+		return date.getTime() / 1000;
+	}
+
+	static getNow() {
+		let nowDate = new Date();
+		return nowDate;
 	}
 
 	static getSecondDifference(startDate, endDate) {
@@ -31,7 +32,12 @@ export class TimeScale {
 	}
 
 	static getYearDifference(startDate, endDate, planet) {
-		endDate = endDate ? endDate : TimeScale.getNow();
-		return Number(((endDate.getYear() - startDate.getYear()) / TimeScale.getPlanetTimeScale(planet)).toFixed(2));
+		try {
+			endDate = endDate ? endDate : TimeScale.getNow();
+			return Number(((endDate.getYear() - startDate.getYear()) / TimeScale.getPlanetTimeScale(planet)).toFixed(2));
+		}
+		catch(error) {
+			return 0;
+		}
 	}
 }
