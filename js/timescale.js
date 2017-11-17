@@ -21,9 +21,8 @@ export class TimeScale {
 	}
 
 	static dateToSeconds(date) {
-		let seconds = 0;
-		console.log(date.getFullYear(), date.getMonth(), date.getDate());
-		return date.getTime() / 1000;
+		let seconds = (date.getTime() / 1000.0)
+		return seconds;
 	}
 
 	static getTimeDifference(startDate, endDate) {
