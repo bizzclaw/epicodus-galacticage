@@ -22,7 +22,7 @@ export class TimeScale {
 
 			let planetObject = Planet.find(planet);
 			planetObject = planetObject ? planetObject : Planet.find("earth");
-			return Number(((endDate.getYear() - startDate.getYear()) / planetObject.data.yearMult).toFixed(2));
+			return planetObject.convertYear(endDate.getYear() - startDate.getYear());
 		}
 		catch(error) {
 			console.log(error);

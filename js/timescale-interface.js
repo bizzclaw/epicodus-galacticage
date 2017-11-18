@@ -6,12 +6,11 @@ $(document).ready(function() {
 	$(".currentDate").text(TimeScale.getNow().toDateString());
 
 	let allPlanets = Planet.getAll();
-	console.log(allPlanets);
 	let planetKeys = Object.keys(allPlanets);
 
 	planetKeys.forEach(function(k) {
 		let v = allPlanets[k];
-		$("#planets").append(`<button class="btn btn-default planet-button submit" value="` + k + `">` + k + `</button>`);
+		$("#planets").append(`<button class="btn btn-default planet-button submit" value="` + k + `">` + v.data.name + `</button>`);
 	});
 
 	$(".planet-button").click(function(event) {
@@ -23,20 +22,33 @@ $(document).ready(function() {
 		event.preventDefault();
 		let birthDay = $("#input-birthday").val();
 		let planet = $(".planet-selected").val();
-		console.log(planet);
 		let birthDate = new Date(birthDay);
 
+		let planetObject = Planet.find(planet);
+
 		let age = parseInt(TimeScale.getYearDifference(birthDate, TimeScale.getNow(), planet));
+
+		let pData = planetObject.data;
 
 		let output = "";
 		if (age < 0) {
 			output = "That's not a possible age in any solar system!";
 		}
 		else {
-			output = "On " + planet + ", you'd be a " + age +  (age > 1 ? " year old." : " year old. How are you even using this computer?");
+			output = "On " + pData.name + ", you'd be a " + age +  (age > 1 ? " year old. " : " year old. How are you even using this computer? ");
+			$("#output-image").attr("src", pData.image);
+
+			let lifeSpanText = "Your average lifespan would be " + planetObject.convertYear(pData.lifeSpan) + " in " + pData.name + " years.";
+
+			if (age > pData.lifeSpan) {
+				lifeSpanText += "You must be doing pretty good for yourself.";
+			}
+
+			$("#output-lifespan").text(lifeSpanText);
+			$("#output-reason").text(pData.reason);
 		}
 
-		$("#output").text(output);
+		$("#output-age").text(output);
 	});
 
 });
