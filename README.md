@@ -28,7 +28,7 @@ to view or edit the website, enter:
 ```
 $ gulp serve
 ```
-Enter your birthday.
+then simply enter your birthday.
 
 ## Edit guide
 * Scripts can be found in js/scripts.js

@@ -33,7 +33,7 @@ new Planet("mercury", {
 	name: "Mercury",
 	yearMult: 0.24,
 	lifeSpan: 30,
-	reason: "You live on Mercury? You must be a miner, you'll make quite a bit of credits for your family on earth, but you probably won't live longer very long on Mercury.",
+	reason: "You live on Mercury? You must be a miner, you'll make quite a bit of credits for your family on earth, but life on Mercury can be pretty hazardous.",
 	image: "img/mercury.jpg"
 });
 
