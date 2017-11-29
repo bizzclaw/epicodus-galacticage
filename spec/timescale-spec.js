@@ -33,7 +33,7 @@ describe("TimeScale", function() {
 		let startDate = new Date("January 1, 2000 UTC");
 		let endDate = new Date("January 1, 2010 UTC")
 		let yearDifference = TimeScale.getYearDifference(startDate, endDate, "mars");
-		expect(yearDifference).toEqual(5.32);
+		expect(yearDifference).toEqual(5);
 
 	})
 });
